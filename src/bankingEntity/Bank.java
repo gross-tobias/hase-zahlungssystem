@@ -1,11 +1,14 @@
 package bankingEntity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bank {
     private Map<String, String> creditCardData = new HashMap<>();
     private Map<String, String> paypalData = new HashMap<>();
+    private List<String> bitcoinData = new ArrayList<>();
 
     public Bank() {
         String kartennummer1 = "8765437812357649";
@@ -25,6 +28,7 @@ public class Bank {
         paypalData.put("user@example.com", "password123");
         paypalData.put(email1, password1);
         paypalData.put(email2, password2);
+        bitcoinData.add("1234567890");
     }
 
     public boolean validateCreditCard(String cardNumber, String cvv) {
@@ -33,5 +37,9 @@ public class Bank {
 
     public boolean validatePayPal(String email, String password) {
         return paypalData.containsKey(email) && paypalData.get(email).equals(password);
+    }
+
+    public boolean validateBitcoin(String wallet) {
+        return bitcoinData.contains(wallet);
     }
 }

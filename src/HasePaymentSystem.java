@@ -1,6 +1,7 @@
 import bankingEntity.Bank;
 import payment.CreditCardPayment;
 import payment.PayPalPayment;
+import payment.BitcoinPayment;
 import payment.PaymentMethod;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class HasePaymentSystem {
             System.out.println("Bitte wählen Sie eine Zahlungsmethode:");
             System.out.println("1. Kreditkarte");
             System.out.println("2. PayPal");
+            System.out.println("3. Bitcoin");
             System.out.println("0. Beenden");
             System.out.print("Ihre Wahl: ");
 
@@ -28,6 +30,9 @@ public class HasePaymentSystem {
                     break;
                 case 2:
                     method = new PayPalPayment();
+                    break;
+                case 3:
+                    method = new BitcoinPayment();
                     break;
                 case 0:
                     System.out.println("Programm beendet.");
